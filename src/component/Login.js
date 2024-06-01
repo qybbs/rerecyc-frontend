@@ -11,7 +11,7 @@ const Login = () => {
   const Auth = async(e) => {
     e.preventDefault();
     try {
-        await axios.post('http://localhost:5000/login', {
+        await axios.post('https://mynotes-backend-dot-project-180324-b-03.et.r.appspot.com/login', {
             email: email,
             password: password
         });

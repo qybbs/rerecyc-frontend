@@ -24,7 +24,7 @@ const EditNote = () => {
 
   const fetchNote = async() => {
     try {
-      const response = await axiosJWT.get(`http://localhost:5000/notes/${params.noteId}`, {
+      const response = await axiosJWT.get(`https://mynotes-backend-dot-project-180324-b-03.et.r.appspot.com/notes/${params.noteId}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -43,7 +43,7 @@ const EditNote = () => {
   const updateNote = async(e) => {
     e.preventDefault();
     try {
-      const response = await axiosJWT.put(`http://localhost:5000/notes/${params.noteId}`, {
+      const response = await axiosJWT.put(`https://mynotes-backend-dot-project-180324-b-03.et.r.appspot.com/notes/${params.noteId}`, {
         title: title,
         content: content
       });
@@ -57,7 +57,7 @@ const EditNote = () => {
 
   const refreshToken = async() => {
     try {
-      const response = await axios.get('http://localhost:5000/token');
+      const response = await axios.get('https://mynotes-backend-dot-project-180324-b-03.et.r.appspot.com/token');
       setToken(response.data.accessToken);
       const decoded = jwtDecode(response.data.accessToken);
       setName(decoded.name);
@@ -74,7 +74,7 @@ const EditNote = () => {
   axiosJWT.interceptors.request.use(async(config) => {
     const currentDate = new Date();
     if (expired * 1000 < currentDate.getTime()) {
-      const response = await axios.get("http://localhost:5000/token");
+      const response = await axios.get("https://mynotes-backend-dot-project-180324-b-03.et.r.appspot.com/token");
       config.headers.Authorization = `Bearer ${response.data.accessToken}`;
       setToken(response.data.accessToken);
       const decoded = jwtDecode(response.data.accessToken);
@@ -87,7 +87,7 @@ const EditNote = () => {
   });
 
   const getUsers = async() => {
-    const response = await axiosJWT.get("http://localhost:5000/users", {
+    const response = await axiosJWT.get("https://mynotes-backend-dot-project-180324-b-03.et.r.appspot.com/users", {
       headers: {
         Authorization: `Bearer ${token}`
       }

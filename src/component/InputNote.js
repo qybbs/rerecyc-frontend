@@ -21,7 +21,7 @@ const InputNote = () => {
   const PostNote = async(e) => {
     e.preventDefault();
     try {
-        await axios.post('http://localhost:5000/note', {
+        await axios.post('https://mynotes-backend-dot-project-180324-b-03.et.r.appspot.com/note', {
             name: name,
             title: title,
             content: content
@@ -36,7 +36,7 @@ const InputNote = () => {
 
   const refreshToken = async() => {
     try {
-      const response = await axios.get('http://localhost:5000/token');
+      const response = await axios.get('https://mynotes-backend-dot-project-180324-b-03.et.r.appspot.com/token');
       setToken(response.data.accessToken);
       const decoded = jwtDecode(response.data.accessToken);
       setName(decoded.name);
@@ -53,7 +53,7 @@ const InputNote = () => {
   axiosJWT.interceptors.request.use(async(config) => {
     const currentDate = new Date();
     if (expired * 1000 < currentDate.getTime()) {
-      const response = await axios.get("http://localhost:5000/token");
+      const response = await axios.get("https://mynotes-backend-dot-project-180324-b-03.et.r.appspot.com/token");
       config.headers.Authorization = `Bearer ${response.data.accessToken}`;
       setToken(response.data.accessToken);
       const decoded = jwtDecode(response.data.accessToken);
@@ -66,7 +66,7 @@ const InputNote = () => {
   });
 
   const getUsers = async() => {
-    const response = await axiosJWT.get("http://localhost:5000/users", {
+    const response = await axiosJWT.get("https://mynotes-backend-dot-project-180324-b-03.et.r.appspot.com/users", {
       headers: {
         Authorization: `Bearer ${token}`
       }
