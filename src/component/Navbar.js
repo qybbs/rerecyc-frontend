@@ -19,12 +19,6 @@ const Navbar = () => {
         <a className="navbar-item" href="/dashboard">
           <h1 className='title is-5 has-text-success'>MyNotes</h1>
         </a>
-    
-        <a role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </a>
       </div>
     
       <div id="navbarBasicExample" className="navbar-menu">
