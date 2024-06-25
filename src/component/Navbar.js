@@ -4,31 +4,28 @@ import { useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const Logout = async() => {
-    try {
-      await axios.delete("https://mynotes-backend-dot-project-180324-b-03.et.r.appspot.com/logout");
-      navigate("/");
-    } catch (error) {
-      console.log(error);
-    }
-  }
   return (
-    <nav className="navbar is-light p-3" role="navigation" aria-label="main navigation">
+    <nav className="navbar is-light p-0 pl-6 " role="navigation" aria-label="main navigation">
       <div className="container">
       <div className="navbar-brand">
-        <a className="navbar-item" href="/dashboard">
-          <h1 className='title is-5 has-text-success'>MyNotes</h1>
-        </a>
-      </div>
+      <a href='/' className='container is-flex is-align-items-center p-3' style={{ fontFamily: "cursive", color: "#17726d" }}>
+      <img src="1.png" style={{ objectFit: "cover", height: "50px" }}/>RERECYC
+      </a>
 
-      <div className="navbar-end">
-          <div className="navbar-item">
-            <div className="buttons">
-              <button onClick={Logout} className="button is-light">
-                Log Out
-              </button>
-            </div>
-          </div>
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+      </div>
+      </div>
+      <div className='navbar-menu' id='navbarBasicExample'>
+        <div className='navbar-end'>
+          <a className='navbar-item' href='/'>Mitra</a>
+          <a className='navbar-item' href='/status'>Status</a>
+          <a className='navbar-item' href='/perolehan'>Perolehan</a>
+          <a className='navbar-item' href='/anggaran'>Anggaran</a>
         </div>
       </div>
     </nav>

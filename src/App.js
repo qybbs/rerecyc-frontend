@@ -1,10 +1,16 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Login from "./component/Login";
-import Register from "./component/Register";
 import Navbar from "./component/Navbar";
 import Dashboard from "./component/Dashboard";
-import InputNote from "./component/InputNote";
-import EditNote from "./component/EditNote";
+import InputMitra from "./component/InputMitra";
+import EditMitra from "./component/EditMitra";
+import DashboardStatus from "./component/status/DashboardStatus";
+import DashboardPerolehan from "./component/perolehan/DashboardPerolehan";
+import DashboardAnggaran from "./component/anggaran/DashboardAnggaran";
+import InputStatus from "./component/status/InputStatus";
+import InputPerolehan from "./component/perolehan/InputPerolehan";
+import EditPerolehan from "./component/perolehan/EditPerolehan";
+import InputAnggaran from "./component/anggaran/InputAnggaran";
+import EditAnggaran from "./component/anggaran/EditAnggaran";
 
 const DashboardLayout = () => {
     return (
@@ -19,19 +25,65 @@ function App() {
   return (
     <BrowserRouter>
         <Routes>
-        <Route exact path="/" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/dashboard" element={<DashboardLayout/>} />
-        <Route path="/inputnote" element={
+        <Route path="/" element={<DashboardLayout/>} />
+        <Route path="/inputmitra" element={
             <div>
                 <Navbar />
-                <InputNote/>
+                <InputMitra/>
             </div>
         } />
-        <Route path="/editnote/:noteId" element={
+        <Route path="/editmitra/:idMitra" element={
             <div>
                 <Navbar />
-                <EditNote/>
+                <EditMitra />
+            </div>
+        } />
+        <Route path="/status" element={
+            <div>
+                <Navbar />
+                <DashboardStatus />
+            </div>
+        } />
+        <Route path="/inputstatus" element={
+            <div>
+                <Navbar />
+                <InputStatus />
+            </div>
+        } />
+        <Route path="/perolehan" element={
+            <div>
+                <Navbar />
+                <DashboardPerolehan />
+            </div>
+        } />
+        <Route path="/inputperolehan" element={
+            <div>
+                <Navbar />
+                <InputPerolehan />
+            </div>
+        } />
+        <Route path="/editperolehan/:idPerolehan" element={
+            <div>
+                <Navbar />
+                <EditPerolehan />
+            </div>
+        } />
+        <Route path="/anggaran" element={
+            <div>
+                <Navbar />
+                <DashboardAnggaran />
+            </div>
+        } />
+        <Route path="/inputanggaran" element={
+            <div>
+                <Navbar />
+                <InputAnggaran />
+            </div>
+        } />
+        <Route path="/editanggaran/:idAnggaran" element={
+            <div>
+                <Navbar />
+                <EditAnggaran />
             </div>
         } />
     </Routes>
